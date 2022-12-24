@@ -259,8 +259,8 @@ app.post("/send", async (req, res) => {
 
   if (
     body.team_id == "T046NLMTSK0" &&
-    channel_id == "C04H90EHP6C" &&
-    user_id == "U046V6W7QNP"
+    body.channel_id == "C04H90EHP6C" &&
+    body.user_id == "U046V6W7QNP"
   ) {
     const newMassage = new message(data);
 
@@ -293,8 +293,8 @@ app.post("/emoji", async (req, res) => {
 
   if (
     body.team_id == "T046NLMTSK0" &&
-    channel_id == "C04H90EHP6C" &&
-    user_id == "U046V6W7QNP" &&
+    body.channel_id == "C04H90EHP6C" &&
+    body.user_id == "U046V6W7QNP" &&
     Emoji[body.text]
   ) {
     const newMassage = new message(data);
@@ -322,8 +322,8 @@ app.post("/active", async (req, res) => {
   const body = req.body;
   if (
     body.team_id == "T046NLMTSK0" &&
-    channel_id == "C04H90EHP6C" &&
-    user_id == "U046V6W7QNP"
+    body.channel_id == "C04H90EHP6C" &&
+    body.user_id == "U046V6W7QNP"
   ) {
     let findUser = await user.find({ name: socket.handshake.auth.name });
     if (findUser.length) {
