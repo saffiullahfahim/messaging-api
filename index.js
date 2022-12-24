@@ -323,7 +323,7 @@ app.post("/emoji", async (req, res) => {
 
 app.post("/active", async (req, res) => {
   const body = req.body;
-  console.log(body)
+  console.log(body, typeof body)
   if (
     body.team_id == "T046NLMTSK0" &&
     body.channel_id == "C04H90EHP6C" &&
