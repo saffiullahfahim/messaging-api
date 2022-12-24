@@ -338,7 +338,7 @@ app.post("/active", async (req, res) => {
     let activeUser = await user.find({
       name: User["Fahim"],
     });
-    res.send(activeUser.length ? activeUser[0].updatedAt : "");
+    res.send(activeUser.length ? getTime(activeUser[0].updatedAt) : "");
   } else {
     res.send("Does not allowed!");
   }
