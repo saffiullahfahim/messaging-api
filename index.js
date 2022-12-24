@@ -257,8 +257,6 @@ app.post("/send", async (req, res) => {
     name: "Fahim",
   };
 
-  console.log(body)
-
   if (
     body.team_id == "T046NLMTSK0" &&
     body.channel_id == "C04H90EHP6C" &&
@@ -279,7 +277,7 @@ app.post("/send", async (req, res) => {
     }
 
     io.emit("newData", result);
-    return { blocks: getBlocks("Fahim", result.message, result.createdAt) };
+    res.json({ blocks: getBlocks("Fahim", result.message, result.createdAt) });
   } else {
     res.send("Does not allowed!");
   }
@@ -292,7 +290,6 @@ app.post("/emoji", async (req, res) => {
     message: "img:" + Emoji[body.text],
     name: "Fahim",
   };
-  console.log(body)
 
   if (
     body.team_id == "T046NLMTSK0" &&
@@ -315,7 +312,7 @@ app.post("/emoji", async (req, res) => {
     }
 
     io.emit("newData", result);
-    return { blocks: getBlocks("Fahim", result.message, result.createdAt) };
+    res.json({ blocks: getBlocks("Fahim", result.message, result.createdAt) });
   } else {
     res.send("Does not allowed!");
   }
@@ -323,7 +320,6 @@ app.post("/emoji", async (req, res) => {
 
 app.post("/active", async (req, res) => {
   const body = req.body;
-  console.log(body, typeof body)
   if (
     body.team_id == "T046NLMTSK0" &&
     body.channel_id == "C04H90EHP6C" &&
@@ -342,7 +338,7 @@ app.post("/active", async (req, res) => {
     let activeUser = await user.find({
       name: User["Fahim"],
     });
-    return activeUser.length ? activeUser[0].updatedAt : "";
+    res.send(activeUser.length ? activeUser[0].updatedAt : "");
   } else {
     res.send("Does not allowed!");
   }
