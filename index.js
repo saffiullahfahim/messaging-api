@@ -63,7 +63,7 @@ const getBlocks = (u_name, message, time) => {
       ],
     },
   ];
-  if (message.substr(0, 4) == "img") {
+  if (message.substr(0, 4) == "img:") {
     blocks[2] = {
       type: "image",
       image_url: message.substr(4),
